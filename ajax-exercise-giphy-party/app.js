@@ -1,13 +1,13 @@
-// my api key gArSxUzbKNPJS6r3WDYR35rLJjA6F4sH
-// example search request:
-// https://api.giphy.com/v1/gifs/search?api_key=gArSxUzbKNPJS6r3WDYR35rLJjA6F4sH&q=pikachu&limit=25&offset=0&rating=G&lang=en
-// q = search query
-// imgResult = object containing image url and alt tag => { url: string, alt: string }
-
 console.log("Let's get this party started!");
 
 const API_KEY = 'gArSxUzbKNPJS6r3WDYR35rLJjA6F4sH';
+
 const container = document.querySelector('#gifs-container');
+const btnSubmit = document.querySelector('#btn-submit');
+const btnClear = document.querySelector('#btn-clear');
+
+btnSubmit.addEventListener('click', handleSearchClick);
+btnClear.addEventListener('click', handleBtnClear);
 
 // Use API call to GET single URL from search query
 async function getGIF(query) {
@@ -40,18 +40,16 @@ function addImgToContainer(element) {
 }
 
 // Handle submit button click
-const btnSubmit = document.querySelector('#btn-submit');
-btnSubmit.addEventListener('click', function(e) {
-    e.preventDefault();
-    const input = document.querySelector('#search');
-    getGIF(input.value);
-    input.value = '';
-    input.focus();
-});
+function handleSearchClick(evt) {
+	evt.preventDefault();
+	const input = document.querySelector('#search');
+	getGIF(input.value);
+	input.value = '';
+	input.focus();
+}
 
 // Handle reset button click
-const btnClear = document.querySelector('#btn-clear');
-btnClear.addEventListener('click', function(e) {
-    e.preventDefault();
-    container.innerHTML = '';
-});
+function handleBtnClear(evt) {
+	evt.preventDefault();
+	container.innerHTML = '';
+};
