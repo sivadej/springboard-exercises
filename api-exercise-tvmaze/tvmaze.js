@@ -1,3 +1,6 @@
+const API_SEARCH_URL = 'http://api.tvmaze.com/search/shows';
+const MISSING_IMG_URL = 'https://tinyurl.com/tv-missing';
+
 /** Given a query string, return array of matching shows:
  *     { id, name, summary, episodesUrl }
  */
@@ -17,7 +20,7 @@
       }
  */
 async function searchShows(query) {
-	const result = await axios.get('http://api.tvmaze.com/search/shows', {
+	const result = await axios.get(API_SEARCH_URL, {
 		params: { q: query }
 	});
 	const showsList = [];
@@ -26,7 +29,7 @@ async function searchShows(query) {
 			id: res.show.id,
 			name: res.show.name,
 			summary: res.show.summary,
-			image: res.show.image === null ? 'https://tinyurl.com/tv-missing' : res.show.image.medium
+			image: !res.show.image ? MISSING_IMG_URL : res.show.image.medium
 		});
   }
 	return showsList;
