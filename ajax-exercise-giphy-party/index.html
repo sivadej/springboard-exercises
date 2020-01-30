@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+  body {
+    background-color: rgb(42, 46, 82);
+    color: white;
+    font-size: 1.5rem;
+    font-family: 'Calibri', sans-serif;
+  }
+
+  img {
+    max-width: 300px;
+    max-height: 300px;
+    padding: 10px;
+  }
+
+  form {
+    margin: 40px;
+    align-items: center;
+    text-align: center;
+  }
+
+  #gifs-container {
+    margin: 20px;
+    align-items: center;
+    text-align: center;
+  }
+</style>
+<head>
+  <meta charset="UTF-8">
+  <title>Giphy Party!</title>
+</head>
+
+<body>
+  <form action="" id="search-form">
+    <input type="text" id="search" placeholder="Enter a search term">
+    <button id="btn-submit">Submit</button>
+    <button id="btn-clear">Remove Images</button>
+  </form>
+  <div id="gifs-container"></div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.js"></script>
+<script src="app.js"></script>
+</body>
+
+</html>
