@@ -7,6 +7,7 @@ const container = document.querySelector('#gifs-container');
 const btnSubmit = document.querySelector('#btn-submit');
 const btnClear = document.querySelector('#btn-clear');
 
+// Button handlers
 btnSubmit.addEventListener('click', handleSearchClick);
 btnClear.addEventListener('click', handleBtnClear);
 
