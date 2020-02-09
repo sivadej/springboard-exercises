@@ -13,7 +13,7 @@ btnClear.addEventListener('click', handleBtnClear);
 
 // -Use API call to GET single URL and alt tag from search query
 // -Display image within container
-async function getGIF(query) {
+async function getGIF(query){
 	const result = await axios.get(API_URL, {
 		params: {
 			api_key: API_KEY,
@@ -26,23 +26,23 @@ async function getGIF(query) {
 	});
 	const url = result.data.data[0].images.original.url;
 	const alt = result.data.data[0].title;
-    addImgToContainer(getImgElement(url, alt));
+	addImgToContainer(getImgElement(url, alt));
 }
 
 // Generate img html element for display
-function getImgElement(url, alt) {
+function getImgElement(url, alt){
 	const imgElement = document.createElement('IMG');
 	imgElement.setAttribute('alt', alt);
 	imgElement.src = url;
 	return imgElement;
 }
 
-function addImgToContainer(element) {
+function addImgToContainer(element){
 	container.append(element);
 }
 
 // Handle submit button click
-function handleSearchClick(evt) {
+function handleSearchClick(evt){
 	evt.preventDefault();
 	const input = document.querySelector('#search');
 	getGIF(input.value);
@@ -51,7 +51,7 @@ function handleSearchClick(evt) {
 }
 
 // Handle reset button click
-function handleBtnClear(evt) {
+function handleBtnClear(evt){
 	evt.preventDefault();
 	container.innerHTML = '';
-};
+}
